@@ -33,10 +33,10 @@ to have the other levels displayed as well, a ConsoleHandler object with the
 appropriate logging level set needed to be created and added to the Logger
 object.
 
-After completing my implementation, I tested my code thoroughly on numerous
-valid and invalid input expressions to ensure all possible code paths were
-exhausted and everything went as expected. With the coding and testing parts
-put together, it took about seven hours to complete.
+After completing my implementation, I tested my code thoroughly on various
+valid and invalid input expressions to ensure everything went as expected.
+With the coding and testing parts put together, it took about seven hours to
+complete.
 
 
 
