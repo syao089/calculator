@@ -156,7 +156,7 @@ public class Calculator {
              */
             for (i = 0; i < expr.length(); i++) {
                 if (expr.charAt(i) == '(') {
-                    /* Start of the first operand. */
+                    /* Start of the operand. */
                     level++;
                 } else if (expr.charAt(i) == ')') {
                     /* End of a sub-expression. */
@@ -204,6 +204,9 @@ public class Calculator {
     	}
     	
     	if (count != 0) {
+    		/* The number of opening and closing brackets aren't equal after
+    		 * at the end of the expression, so the brackets don't match.
+    		 */
     		result = false;
     	}
     	
@@ -227,21 +230,24 @@ public class Calculator {
             }
             
             /* Normalize the expression by removing all the whitespaces around
-             * opening/closing brackets and the comma separator.
+             * opening/closing brackets and comma separators.
              * Any remaining whitespaces after the normalization will indicate
              * an invalid expression during evaluation later on.
              */
 
             /* Remove all white spaces before and after the opening and closing brackets
              */
-            String expr_v1 = args[0].replaceAll("(.)(\\s+)([()])(\\s+)(.)", "$1$3$5");
+            String expr_v1 = args[0].replaceAll("(.)(\\s*)([()])(\\s*)(.)", "$1$3$5");
 
-            /* Remove all spaces before and after the separator ,
+            /* Remove all spaces before and after the comma separator ,
              */
              String expr_v2 = expr_v1.replaceAll("(.)(\\s*)([,])(\\s*)(.)", "$1$3$5");
 
              String expr_v3 = expr_v2.replaceAll("(.)([,])(\\s+)(.)", "$1$2$4");
              
+             /* Set the console handler level to DEBUG, add it to the logger, and
+              * set the logging level to DEBUG.
+              */
              myCalc.handler.setLevel(DEBUG);
              myCalc.logger.addHandler(myCalc.handler);
              myCalc.logger.setLevel(DEBUG);
