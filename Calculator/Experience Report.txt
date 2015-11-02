@@ -3,8 +3,6 @@ Calculator
 There are many different ways to implement a simple Calculator program. One way is to use a stack based approach, where
 numbers are pushed onto a stack, and mathematical operations pop numbers from the stack and the results get pushed back in.
 
-Test
-
 For this assignment, I took the most straightforward and natural approach by using recursion. All of the operations 
 (add/sub/mult/div/let) took operands, each as a sub expression. In my solution I removed all whitespaces between brackets and 
 commas to make parsing easier. Then, I parsed the expression from the beginning. After going through the first operation, 
