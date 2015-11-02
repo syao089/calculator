@@ -1,0 +1,40 @@
+Calculator
+
+There are many different ways to implement a simple Calculator program. One way is to use a stack based approach, where
+numbers are pushed onto a stack, and mathematical operations pop numbers from the stack and the results get pushed back in.
+
+For this assignment, I took the most straightforward and natural approach by using recursion. All of the operations 
+(add/sub/mult/div/let) took operands, each as a sub expression. In my solution I removed all whitespaces between brackets and 
+commas to make parsing easier. Then, I parsed the expression from the beginning. After going through the first operation, 
+I extracted the two operands from it (three for let) and recursively broke down each subexpression and further subexpressions 
+until a numerical value or variable was reached. This was the end of the recursion. The operations were evaluated once the 
+recursive calls were returned.
+
+For storing variables and their values, I used a HashMap. Once the second expression was evaluated, I assigned the value
+to the variable and added the entry to the HashMap. As variables used in one let operation can be reused in others, I removed
+the variable and its value from the HashMap once the end of the let operation had been reached.
+
+For logging, I used the Java logging package. This provides different logging levels include FINE, INFO, and SEVERE, which
+correspond to the DEBUG, INFO, and ERROR levels. During my testing, I found out that this only ERROR logs were displayed on the
+console when there was an invalid input expression. After doing some searching online, I discovered that in order to have the
+other levels displayed as well, a ConsoleHandler object with the appropriate logging level set needed to be added to the Logger object.
+
+After completing my implementation, I tested my code thoroughly on numerous valid and invalid input expressions to ensure
+everything went as expected. With the coding and testing parts put together, it took about 6 hours to complete.
+
+
+
+Maven
+
+As I did not have previous experience with Maven, I needed to read some tutorials to learn how it worked.
+Fortunately, there was an easy way to use Maven from the M2Eclipse plugin. As I initially, created the project
+as a Java project, I needed to convert it to a Maven project before being able to specify the groupId, artifactId, name,
+and description to create the pom.xml file. Then, I ran mvn compile from the directory where pom.xml is located
+to build the project. This took me about one hour to complete.
+
+
+
+Git
+
+As I did not have previous experience with Git, I needed to read some tutorials to learn how it worked. To use Git, I created
+an account on GitHub 
